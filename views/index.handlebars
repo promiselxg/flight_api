@@ -1,0 +1,191 @@
+<div class="theme-hero-area theme-hero-area-primary">
+    <div class="theme-hero-area-bg-wrap">
+        <div class="theme-hero-area-bg ws-action" style="background-color:dimgray" data-parallax="true">
+        </div>
+        <div class="theme-hero-area-mask theme-hero-area-mask-half"></div>
+        <div class="theme-hero-area-inner-shadow theme-hero-area-inner-shadow-light"></div>
+    </div>
+    <div class="theme-hero-area-body">
+        <div class="_pt-150 _pb-200 _pv-mob-50">
+            <div class="container">
+                <div class="theme-search-area-tabs">
+                    <div class="theme-search-area-tabs-header _c-w _ta-mob-c">
+                        <h1 class="theme-search-area-tabs-title">Start Your Jorney</h1>
+                        <p class="theme-search-area-tabs-subtitle">A Backend Interview Question</p>
+                        {{#each errors}}
+                        <div class="erroBd">
+                            <div class="error">
+                                {{text}}
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        {{#each origin_destinations}}
+
+                        <div class="error">{{origin_destinations}}</div>
+
+                        {{/each}}
+
+
+
+                    </div>
+                    <div class="tabbable">
+                        <ul class="nav nav-tabs nav-line nav-white nav-lg nav-mob-inline" role="tablist">
+                            <li class="active" role="presentation">
+                                <a aria-controls="SearchAreaTabs-3" role="tab" data-toggle="tab"
+                                    href="#SearchAreaTabs-3">Flights</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content _pt-20">
+
+
+                            <div class="tab-pane active" id="SearchAreaTabs-3" role="tab-panel">
+                                <form action="/flights/search" method="POST">
+                                    <div class="theme-search-area theme-search-area-stacked">
+                                        <div class="theme-search-area-form" style="margin-bottom:10px">
+                                            <div class="row" data-gutter="none">
+                                                <div class="col-md-12 ">
+                                                    <div class="row" data-gutter="none">
+                                                        <div class="col-md-6 ">
+                                                            <div
+                                                                class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lin lin-location-pin"></i>
+                                                                    <input
+                                                                        class="theme-search-area-section-input typeahead"
+                                                                        type="text" placeholder="Departure City"
+                                                                        data-provide="typeahead"
+                                                                        name="departure_city" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lin lin-location-pin"></i>
+                                                                    <input
+                                                                        class="theme-search-area-section-input typeahead"
+                                                                        type="text" placeholder="Arrival City"
+                                                                        data-provide="typeahead"
+                                                                        name="destination_city" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="theme-search-area-form">
+                                            <div class="row" data-gutter="none">
+                                                <div class="col-md-12">
+                                                    <div class="row" data-gutter="none">
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section-bg-white theme-search-area-section-mr theme-search-area-section-no-border theme-search-area-section theme-search-area-section-curved">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lin lin-calendar"></i>
+                                                                    <select class="theme-search-area-section-input"
+                                                                        style="cursor:pointer" name="cabin">
+                                                                        <option value="All">All Class</option>
+                                                                        <option value="Economy" class="form-control">
+                                                                            Economy Class</option>
+                                                                        <option value="Business" class="form-control">
+                                                                            Business Class</option>
+                                                                        <option value="Premium" class="form-control">
+                                                                            Premium Class</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lin lin-calendar"></i>
+                                                                    <input class="theme-search-area-section-input"
+                                                                        type="date" placeholder="Departure Date"
+                                                                        name="departure_date" title="Departure Date"
+                                                                        required />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lin lin-calendar"></i>
+                                                                    <input class="theme-search-area-section-input"
+                                                                        type="date" placeholder="Return Date"
+                                                                        name="return_date" title="Return Date" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lni lni-users"></i>
+                                                                    <input class="theme-search-area-section-input"
+                                                                        min="1" max="10" type="number"
+                                                                        placeholder="Number of Adults"
+                                                                        name="no_of_adult" title="Number of Adults" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lni lni-users"></i>
+                                                                    <input class="theme-search-area-section-input"
+                                                                        type="number" min="0" max="10"
+                                                                        placeholder="Children" name="no_of_child"
+                                                                        title="Number of Children" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-2 ">
+                                                            <div
+                                                                class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <div class="theme-search-area-section-inner">
+                                                                    <i
+                                                                        class="theme-search-area-section-icon lni lni-users"></i>
+                                                                    <input class="theme-search-area-section-input"
+                                                                        type="number" min="0" max="10"
+                                                                        placeholder="Infants" name="no_of_infant"
+                                                                        title="Number of Infants" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="margin-top:10px">
+                                                    <input type="submit"
+                                                        class="theme-search-area-submit _mt-0 theme-search-area-submit-no-border theme-search-area-submit-curved"
+                                                        value="Search" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Handle Bar display-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
