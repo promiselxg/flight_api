@@ -5,6 +5,9 @@ const exphbs = require('express-handlebars');
 const path = require('path')
 const bodyParser = require('body-parser')
 
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 //  Routes
 const auth = require('./routes/auth');
 const search = require('./routes/search');
@@ -45,6 +48,9 @@ app.use('/auth', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    res.render('index')
+});
+app.get('/flights/search', (req, res) => {
     res.render('index')
 });
 

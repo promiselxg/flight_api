@@ -6,7 +6,8 @@ exports.search = async (req, res, next) => {
     const url = `${process.env.URL}/v1/flight/search-flight`;
 
 
-//  Comment this out if you are testing with POSTMAN /////
+    //  Comment this out if you are testing with POSTMAN /////
+
     let {
         departure_city,
         destination_city,
@@ -42,8 +43,8 @@ exports.search = async (req, res, next) => {
             }
         }
     } = req.body
-    */
 
+*/
 
 
 
@@ -112,40 +113,52 @@ exports.search = async (req, res, next) => {
         }
         try {
             const resp = await axios.post(url, params)
+
             const {
                 data: {
                     body: {
                         data: {
-                            itineraries: [...origin_destinations]
+                            itineraries
                         }
                     }
                 }
             } = resp;
-            
-            //  Send result to Handlebars
-            res.status(200).render('index', {
-                origin_destinations
-            })
+            console.log(itineraries.pricing.provider)
+            return false;
 
-            // Send Result to POSTMAN
+            let response = []
+            let price_list = []
+
+            itineraries.forEach((row) => {
+                row.origin_destinations.forEach((destination) => {
+                    destination.segments.forEach((segments) => {
+                        response.push({
+                            segments
+                        })
+                    });
+                });
+            });
+
             
-            /*res.status(200).json({
-                success: true,
-                count: origin_destinations.length,
-                msg: origin_destinations
+
+
+            res.render('flight-results', {
+                response
             })
-            */
 
         } catch (error) {
             const {
                 message
             } = error
-            res.status(422).json({
-                success: false,
-                data: {
-                    message
-                }
-            })
+            if (message.length > 0) {
+                console.log(message)
+                errors.push({
+                    text: 'An Unexpected Error Occured, Please Try Again Later'
+                })
+                res.render('index', {
+                    errors
+                })
+            }
         }
     }
 }

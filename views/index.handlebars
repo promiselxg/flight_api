@@ -6,26 +6,23 @@
         <div class="theme-hero-area-inner-shadow theme-hero-area-inner-shadow-light"></div>
     </div>
     <div class="theme-hero-area-body">
-        <div class="_pt-150 _pb-200 _pv-mob-50">
+        <div class="_pt-90 _pb-200 _pv-mob-50">
             <div class="container">
                 <div class="theme-search-area-tabs">
                     <div class="theme-search-area-tabs-header _c-w _ta-mob-c">
                         <h1 class="theme-search-area-tabs-title">Start Your Jorney</h1>
                         <p class="theme-search-area-tabs-subtitle">A Backend Interview Question</p>
-                        {{#each errors}}
-                        <div class="erroBd">
-                            <div class="error">
-                                {{text}}
+                        <div class="errorBox">
+                            {{#each errors}}
+                            <div class="erroBd">
+                                <div class="error">
+                                    {{text}}
+                                </div>
                             </div>
+                            {{/each}}
+
+                            
                         </div>
-                        {{/each}}
-
-                        {{#each origin_destinations}}
-
-                        <div class="error">{{origin_destinations}}</div>
-
-                        {{/each}}
-
 
 
                     </div>
@@ -49,6 +46,7 @@
                                                         <div class="col-md-6 ">
                                                             <div
                                                                 class="theme-search-area-section first theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">Departure City</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lin lin-location-pin"></i>
@@ -63,6 +61,7 @@
                                                         <div class="col-md-6 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">Destination City</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lin lin-location-pin"></i>
@@ -85,6 +84,7 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section-bg-white theme-search-area-section-mr theme-search-area-section-no-border theme-search-area-section theme-search-area-section-curved">
+                                                                <span class="inner_span">Cabin Class</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lin lin-calendar"></i>
@@ -104,12 +104,14 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">Departure Date</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lin lin-calendar"></i>
                                                                     <input class="theme-search-area-section-input"
                                                                         type="date" placeholder="Departure Date"
                                                                         name="departure_date" title="Departure Date"
+                                                                        min="{{moment date=d add="1" format="YYYY-MM-DD"}}"
                                                                         required />
                                                                 </div>
                                                             </div>
@@ -117,12 +119,15 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">Return Date</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lin lin-calendar"></i>
                                                                     <input class="theme-search-area-section-input"
                                                                         type="date" placeholder="Return Date"
-                                                                        name="return_date" title="Return Date" />
+                                                                        min="{{moment date=d add="1" format="YYYY-MM-DD"}}"
+                                                                        name="return_date" title="Return Date"
+                                                                        required />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -130,11 +135,12 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">No of Adults</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lni lni-users"></i>
                                                                     <input class="theme-search-area-section-input"
-                                                                        min="1" max="10" type="number"
+                                                                        min="1" max="10" type="number" value="1"
                                                                         placeholder="Number of Adults"
                                                                         name="no_of_adult" title="Number of Adults" />
                                                                 </div>
@@ -143,11 +149,12 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">No of Children</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lni lni-users"></i>
                                                                     <input class="theme-search-area-section-input"
-                                                                        type="number" min="0" max="10"
+                                                                        type="number" min="0" max="10" value="0"
                                                                         placeholder="Children" name="no_of_child"
                                                                         title="Number of Children" />
                                                                 </div>
@@ -157,11 +164,12 @@
                                                         <div class="col-md-2 ">
                                                             <div
                                                                 class="theme-search-area-section theme-search-area-section-curved theme-search-area-section-bg-white theme-search-area-section-no-border theme-search-area-section-mr">
+                                                                <span class="inner_span">No of Infants</span>
                                                                 <div class="theme-search-area-section-inner">
                                                                     <i
                                                                         class="theme-search-area-section-icon lni lni-users"></i>
                                                                     <input class="theme-search-area-section-input"
-                                                                        type="number" min="0" max="10"
+                                                                        type="number" min="0" max="10" value="0"
                                                                         placeholder="Infants" name="no_of_infant"
                                                                         title="Number of Infants" />
                                                                 </div>

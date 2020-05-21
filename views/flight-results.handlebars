@@ -1,0 +1,174 @@
+<div class="theme-page-section theme-page-section-gray">
+  <div class="container">
+    <div class="row row-col-static" id="sticky-parent" data-gutter="20">
+      <div class="col-md-2-5 ">
+        <div class="sticky-col _mob-h">
+          <div class="theme-ad">
+            <a class="theme-ad-link" href="#"></a>
+            <p class="theme-ad-sign">Advertisement</p>
+            <img class="theme-ad-img" src="/img/300x500.png" alt="Image Alternative text" title="Image Title" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 ">
+
+        <!-- BUILD OUTPUT /////////////////////////////////////////////////////////////////////////-->
+
+        <div class="theme-search-results-sign-in _mob-h bg-grad">
+          <i class="theme-search-results-sign-in-icon fa fa-unlock-alt"></i>
+          <h5 class="theme-search-results-sign-in-title">Sign in to unlock our secret delas. Save up to
+            <b>50%</b>
+          </h5>
+          <a class="btn theme-search-results-sign-in-btn btn-ghost btn-white" href="#">Sign in now</a>
+        </div>
+        {{#each price}}
+            {{provider.currency.code}}
+        {{/each}}
+        
+        {{#each response}}
+      
+        <div class="theme-search-results">
+          <div class="theme-search-results-item _mb-10 theme-search-results-item-rounded theme-search-results-item-">
+            <div class="theme-search-results-item-preview">
+              <a class="theme-search-results-item-mask-link" href="#searchResultsItem-1" role="button"
+                data-toggle="collapse" aria-expanded="false" aria-controls="searchResultsItem-1"></a>
+              <div class="row" data-gutter="20">
+                <div class="col-md-10 ">
+                  <div class="theme-search-results-item-flight-sections">
+                    <div class="theme-search-results-item-flight-section">
+                      <div class="row row-no-gutter row-eq-height">
+                        <div class="col-md-2 ">
+                          <div class="theme-search-results-item-flight-section-airline-logo-wrap">
+                            <img class="theme-search-results-item-flight-section-airline-logo" src="/img/351x253.png"
+                              alt="Image Alternative text" title="Image Title" />
+                          </div>
+                        </div>
+                        <div class="col-md-10 ">
+                          <div class="theme-search-results-item-flight-section-item">
+                            <div class="row">
+                              <div class="col-md-3 ">
+                                <div class="theme-search-results-item-flight-section-meta">
+                                  <p class="theme-search-results-item-flight-section-meta-time">
+                                    {{segments.departure.time}}
+                                    <span>pm</span>
+                                  </p>
+                                  <p class="theme-search-results-item-flight-section-meta-city">
+                                    {{segments.departure.airport.city_name}}</p>
+                                  <p class="theme-search-results-item-flight-section-meta-date">
+                                    {{segments.departure.date}}</p>
+                                </div>
+                              </div>
+                              <div class="col-md-6 ">
+                                <div class="theme-search-results-item-flight-section-path">
+                                  <div class="theme-search-results-item-flight-section-path-fly-time">
+                                    <p>{{segments.flight_duration}}</p>
+                                  </div>
+                                  <div class="theme-search-results-item-flight-section-path-line"></div>
+                                  <div class="theme-search-results-item-flight-section-path-line-start">
+                                    <i class="fa fa-plane theme-search-results-item-flight-section-path-icon"></i>
+                                    <div class="theme-search-results-item-flight-section-path-line-dot"></div>
+                                    <div class="theme-search-results-item-flight-section-path-line-title">
+                                      {{segments.departure.airport.code}}</div>
+                                  </div>
+                                  <div class="theme-search-results-item-flight-section-path-line-end">
+                                    <i class="fa fa-plane theme-search-results-item-flight-section-path-icon"></i>
+                                    <div class="theme-search-results-item-flight-section-path-line-dot"></div>
+                                    <div class="theme-search-results-item-flight-section-path-line-title">
+                                      {{segments.arrival.airport.code}}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-3 ">
+                                <div class="theme-search-results-item-flight-section-meta">
+                                  <p class="theme-search-results-item-flight-section-meta-time">
+                                    {{segments.arrival.time}}
+                                    <span>pm</span>
+                                  </p>
+                                  <p class="theme-search-results-item-flight-section-meta-city">
+                                    {{segments.arrival.airport.city_name}}</p>
+                                  <p class="theme-search-results-item-flight-section-meta-date">
+                                    {{segments.arrival.date}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <h5 class="theme-search-results-item-flight-section-airline-title">Operated by
+                        {{segments.departure.airport.name}}</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-2 ">
+                  <div class="theme-search-results-item-book">
+                    <div class="theme-search-results-item-price">
+                      <p class="theme-search-results-item-price-tag">$179</p>
+                      <p class="theme-search-results-item-price-sign">economy</p>
+                    </div>
+                    <a class="btn btn-primary-inverse btn-block theme-search-results-item-price-btn" href="#">Book
+                      Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{/each}}
+
+
+        <a class="btn _tt-uc _fs-sm btn-dark btn-block btn-lg" href="#">Load More Results</a>
+      </div>
+      <!-- ADVERT /////////////////////////////////////////////////////////////////////////-->
+      <div class="col-md-2-5 ">
+        <div class="sticky-col _mob-h">
+          <div class="theme-ad _mb-20">
+            <a class="theme-ad-link" href="#"></a>
+            <p class="theme-ad-sign">Advertisement</p>
+            <img class="theme-ad-img" src="/img/300x800.png" alt="Image Alternative text" title="Image Title" />
+          </div>
+          <div class="theme-ad">
+            <a class="theme-ad-link" href="#"></a>
+            <p class="theme-ad-sign">Advertisement</p>
+            <img class="theme-ad-img" src="/img/300x500.png" alt="Images Alternative text" title="Image Title" />
+          </div>
+        </div>
+      </div>
+      <!-- ADVERT /////////////////////////////////////////////////////////////////////////-->
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER /////////////////////////////////////////////////////////////////////////-->
+
+<div class="theme-copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="theme-copyright-text">Copyright &copy; 2018
+          <a href="#">Bookify</a>. All rights reserved.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <ul class="theme-copyright-social">
+          <li>
+            <a class="fa fa-facebook" href="#"></a>
+          </li>
+          <li>
+            <a class="fa fa-google" href="#"></a>
+          </li>
+          <li>
+            <a class="fa fa-twitter" href="#"></a>
+          </li>
+          <li>
+            <a class="fa fa-youtube-play" href="#"></a>
+          </li>
+          <li>
+            <a class="fa fa-instagram" href="#"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
